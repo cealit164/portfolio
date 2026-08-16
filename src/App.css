@@ -1,38 +1,325 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  padding: 60px;
+  margin: 5px;
+  border: 4px solid var(--moon-border);
+  border-radius: 12px;
+  box-sizing: border-box;
+  background: var(--moon-bg);
+  color: var(--moon-text);
   min-height: 100vh;
+}
+
+.profile-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid var(--moon-border);
+  padding: 4px;
+  box-sizing: border-box;
+  object-fit: cover;
+}
+
+.content-box {
+  text-align: left;
+  border: 3px solid var(--moon-border);
+  border-radius: 12px;
+  padding: 20px;
+  box-sizing: border-box;
+  background: var(--moon-bg-card);
+}
+
+.content-box h2 {
+  background: var(--moon-border);
+  color: var(--moon-bg);
+  margin: 24px -20px 16px -20px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+.content-box h2:first-child {
+  margin-top: -20px;
+  border-radius: 9px 9px 0 0;
+}
+
+.muted-text {
+  padding-left: 25px;
+  color: var(--moon-text-muted);
+}
+
+.nav-toggle {
+  background: none;
+  border: 2px solid var(--moon-border);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1em;
+  padding: 6px 10px;
+  color: var(--moon-text-muted);
+}
+
+.nav-toggle.open {
+  background: var(--moon-border);
+  color: var(--moon-bg);
+}
+
+.sidebar {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 180px;
+  text-align: left;
+  z-index: 10;
+}
+
+.nav-panel {
+  background: var(--moon-border);
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 8px;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-sublist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list > li {
+  margin-bottom: 12px;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: var(--moon-bg);
+}
+
+.nav-list a:hover {
+  text-decoration: underline;
+  color: var(--moon-accent);
+}
+
+.nav-dropdown-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+  color: var(--moon-bg);
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-dropdown-toggle:hover {
+  color: var(--moon-accent);
+}
+
+.nav-arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.nav-arrow.open {
+  transform: rotate(180deg);
+}
+
+.nav-sublist {
+  margin-top: 8px;
+  padding-left: 16px;
+}
+
+.nav-sublist li {
+  margin-bottom: 8px;
+}
+
+.nav-sublist a {
+  font-size: 0.9em;
+}
+
+.page-content {
+  margin-left: 140px;
+  transition: margin-left 0.2s ease;
+}
+
+.page-content.nav-collapsed {
+  margin-left: 20px;
+}
+
+.profile-header {
+  text-align: center;
+  background: var(--moon-border);
+  border-radius: 12px;
+  padding: 30px 20px;
+  margin-bottom: 20px;
+}
+
+.profile-header h1 {
+  color: var(--moon-bg);
+}
+
+.main-content {
+  text-align: left;
+}
+
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  padding-left: 25px;
+}
+
+.project-card {
+  border: 2px solid var(--moon-border);
+  border-radius: 12px;
+  padding: 16px;
+  box-sizing: border-box;
+  background: var(--moon-bg-card);
+}
+
+.project-carousel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--moon-border);
+  color: var(--moon-bg);
+  margin: -16px -16px 0 -16px;
+  padding: 12px 12px 8px;
+  border-radius: 9px 9px 0 0;
+  box-sizing: border-box;
+}
+
+.carousel-media {
+  flex: 1;
+  height: 140px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background: var(--moon-bg-card);
+  border: 1px solid var(--moon-bg);
+  border-radius: 8px;
+  color: var(--moon-text-muted);
+  text-align: center;
+  padding: 8px;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+.carousel-media img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.carousel-arrow {
+  background: none;
+  border: 2px solid var(--moon-bg);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  cursor: pointer;
+  font-size: 1.2em;
+  line-height: 1;
+  color: var(--moon-bg);
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  background: var(--moon-border);
+  margin: 0 -16px;
+  padding: 8px 12px;
+}
+
+.carousel-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--moon-bg);
+  opacity: 0.4;
+}
+
+.carousel-dot.active {
+  background: var(--moon-accent);
+  opacity: 1;
+}
+
+.project-title {
+  background: var(--moon-border);
+  color: var(--moon-bg);
+  margin: 0 -16px 12px -16px;
+  padding: 10px 16px 14px;
+}
+
+.project-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.project-play-link {
+  color: var(--moon-text-muted);
+}
+
+.project-play-link:hover {
+  color: var(--moon-accent);
+}
+
+.project-info-btn {
+  background: none;
+  border: 2px solid var(--moon-border);
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font: inherit;
+  color: var(--moon-text-muted);
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.modal {
+  background: var(--moon-bg-card);
+  border: 3px solid var(--moon-border);
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 480px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  text-align: left;
+  color: var(--moon-text);
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: 2px solid var(--moon-border);
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  line-height: 1;
+  color: var(--moon-text-muted);
 }
