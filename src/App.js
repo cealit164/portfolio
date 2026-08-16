@@ -106,9 +106,15 @@ function App() {
           <div className="content-box">
             <h2 id="contact-info">Contact Info</h2>
             <p className="muted-text">
-              <a href="https://linkedin.com/in/ali-mohammed-98690a308">LinkedIn</a>
+              <a href="https://www.linkedin.com/in/ali-mohammed-alqahtani-98690a308/">LinkedIn</a>
               {' | '}
-              <a href="https://linktr.ee">Website</a>
+              <a href="https://github.com/cealit164">GitHub</a>
+              {' | '}
+              <a href="https://cealit164.itch.io/">itch.io</a>
+              {' | '}
+              <a href="https://x.com/AliMoha90038896">X</a>
+              {' | '}
+              <a href="https://www.youtube.com/@Ali16441">YouTube</a>
               {' | '}
               <a href="mailto:alialqahtania164@gmail.com">Email</a>
             </p>
