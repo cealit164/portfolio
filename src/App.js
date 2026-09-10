@@ -8,6 +8,10 @@ function App() {
   const [projectsOpen, setProjectsOpen] = useState(false);
   const [navOpen, setNavOpen] = useState(true);
 
+  const closeNavOnMobile = () => {
+    if (window.innerWidth <= 768) setNavOpen(false);
+  };
+
   return (
     <div id='app' className="App">
       <nav className="sidebar">
@@ -23,10 +27,10 @@ function App() {
         {navOpen && (
           <div className="nav-panel">
           <ul className="nav-list">
-            <li><a href="#app">Main</a></li>
-            <li><a href="#description">Description</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#focus-areas">Focus Areas</a></li>
+            <li><a href="#app" onClick={closeNavOnMobile}>Main</a></li>
+            <li><a href="#description" onClick={closeNavOnMobile}>Description</a></li>
+            <li><a href="#skills" onClick={closeNavOnMobile}>Skills</a></li>
+            <li><a href="#focus-areas" onClick={closeNavOnMobile}>Focus Areas</a></li>
             <li>
               <button
                 className="nav-dropdown-toggle"
@@ -40,13 +44,13 @@ function App() {
                 <ul className="nav-sublist">
                   {projects.map((project) => (
                     <li key={project.title}>
-                      <a href={`#${slugify(project.title)}`}>{project.title}</a>
+                      <a href={`#${slugify(project.title)}`} onClick={closeNavOnMobile}>{project.title}</a>
                     </li>
                   ))}
                 </ul>
               )}
             </li>
-            <li><a href="#contact-info">Contact Info</a></li>
+            <li><a href="#contact-info" onClick={closeNavOnMobile}>Contact Info</a></li>
           </ul>
           </div>
         )}
